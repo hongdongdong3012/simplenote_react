@@ -14,4 +14,10 @@ https://miro.medium.com/max/700/1*TG9BBaIsfIUlL7_ZvN8H-g.png
 
 * state란 UI의 상태를 기록하는 데이터입니다.일반적으로 버튼의 활성화 상태, input의 입력 값, 체크박스 체크 여부 등의 상태를 관리하죠 *
 
-* props는 상위 컴포넌트가 하위 컴포넌트에 데이터를 전달하는 방법입니다. 하위 컴포넌트는 ** this.props **를 참조하여 데이터에 접근할 수 있죠. 이때, props 데이터는 읽기 전용이기 때문에 절대 변경해서는 안됩니다. 왜냐하면 컴포넌트는 pure function 처럼 작동해야 하기 때문이죠. UI를 변경할 필요가 있다면 STATE를 활용하면 됩니다. 😊 !!
+- App 컴포넌트의 state에 notes 와 activeId를 설정
+- notes는 앱의 노트 정보를 담은 array
+- activeId는 리스트에서 유저가 선택하여 활성화 된 노트의 id를 기록
+
+
+## 4. List 렌더링하기
+List 컴포넌트가 notes 데이터를 props로 전달받게 되었으니, 그 데이터에 따라 노트 리스트를 그리도록 해보겠습니다.
