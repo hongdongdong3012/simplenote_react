@@ -17,6 +17,7 @@ class App extends React.Component {
 
   render() {
     const { notes, activeId } = this.state;
+    const activeNote = notes.filter((item) => item.id === activeId)[0];
     return (
       <div className="app">
         <Header />
@@ -26,7 +27,9 @@ class App extends React.Component {
             activeId={activeId} 
             onListitemClick={this.handleListItemClick}
             />
-          <Note/>
+            {
+              notes.length !== 0 && <Note note={activeNote} />
+            }
         </div>
       </div>
     )
