@@ -4,7 +4,11 @@ import ListItem from './ListItem'
 
 class List extends React.Component {
   render() {
-    const { notes, activeId } = this.props;
+    const { 
+      notes, 
+      activeId,
+      onListitemClick
+    } = this.props;
     return (
       <div className="list">
         {notes.map((item) => {
@@ -16,8 +20,9 @@ class List extends React.Component {
               active={id === activeId}
               title={title}
               contents={contents}
+              onClick={() => onListitemClick(id)}
             />
-          )
+          );
         })}
       </div>
     )

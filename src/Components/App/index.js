@@ -7,8 +7,12 @@ import Note from '../Simple/Note'
 class App extends React.Component {
 
   state = {
-    note: [],
+    notes: [],
     activeId : null,
+  }
+
+  handleListItemClick = (id) => {
+    this.setState({ activeId : id });
   }
 
   render() {
@@ -17,8 +21,12 @@ class App extends React.Component {
       <div className="app">
         <Header />
         <div className="container">
-          <List />
-          <Note notes={notes} activeId={activeId}/>
+          <List 
+            notes={notes} 
+            activeId={activeId} 
+            onListitemClick={this.handleListItemClick}
+            />
+          <Note/>
         </div>
       </div>
     )
