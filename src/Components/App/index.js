@@ -15,6 +15,15 @@ class App extends React.Component {
     this.setState({ activeId : id });
   }
 
+  handleEditNote = (type, e) => {
+    const notes = [...this.state.notes];
+    const note = notes.find((item) => item.id === this.state.activeId)
+    note[type] = e.target.value;
+    this.setState({
+      notes,
+    });
+  }
+
   render() {
     const { notes, activeId } = this.state;
     const activeNote = notes.filter((item) => item.id === activeId)[0];
@@ -28,7 +37,9 @@ class App extends React.Component {
             onListitemClick={this.handleListItemClick}
             />
             {
-              notes.length !== 0 && <Note note={activeNote} />
+              notes.length !== 0 && <Note note={activeNote} 
+                onEditNote={this.handleEditNote}
+              />
             }
         </div>
       </div>
